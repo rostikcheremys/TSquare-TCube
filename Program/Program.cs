@@ -17,40 +17,49 @@ namespace Program
             
             cube.InputData();
             cube.DisplayData();
-
-            Console.Write("\nВведiть першу довжину сторони квадрата: ");
-            TSquare squareOfFirst = new TSquare();
             
-            squareOfFirst.InputData();
+            Console.Write("\nДодавання довжин сторон квадрата:\nВведiть першу довжину: ");
+            TSquare numberOfFirstSum = new TSquare();
             
-            Console.Write("Введiть другу довжину сторони квадрата: ");
-            TSquare squareOfSecond = new TSquare();
+            numberOfFirstSum.InputData();
             
-            squareOfSecond.InputData();
-
-            Console.WriteLine("\nПорiвняння двох квадратiв на рiвнiсть їхнiх розмiрiв:");
-            bool result = squareOfFirst.CompareTo(squareOfSecond);
+            Console.Write("Введiть другу довжину: ");
+            TSquare numberOfSecondSum = new TSquare();
             
-            Console.WriteLine($"Результат: {result}");
+            numberOfSecondSum.InputData();
             
-            Console.WriteLine("\nСума двох квадратів:");
-            TSquare sum = squareOfFirst + squareOfSecond;
+            TSquare sum = numberOfFirstSum + numberOfSecondSum;
+            Console.WriteLine($"\nРезультат: \n{sum}");
             
-            sum.DisplayData();
+            Console.Write("\nВіднімання довжин сторон квадрата:\nВведiть першу довжину: ");
+            TSquare numberOfFirstDiff = new TSquare();
             
-            Console.WriteLine("\nРізниця двох квадратів:");
-            TSquare diff = squareOfFirst - squareOfSecond;
+            numberOfFirstDiff.InputData();
             
-            diff.DisplayData();
+            Console.Write("Введiть другу довжину: ");
+            TSquare numberOfSecondDiff = new TSquare();
             
-            Console.Write("\nВведiть число для множення довжини сторони квадрата: ");
+            numberOfSecondDiff.InputData();
+            
+            TSquare diff = numberOfFirstDiff - numberOfSecondDiff;
+            Console.WriteLine($"\nРезультат: \n{diff}");
+            
+            Console.Write("\nМноження довжини сторони квадрата:\nВведiть довжину: ");
+            TSquare length = new TSquare();
+            
+            length.InputData();
+            
+            Console.Write("Введiть число, на яке ви хочете помножити: ");
             TSquare multiplier = new TSquare();
             
             multiplier.InputData();
-             
-            TSquare multiplication = squareOfFirst * multiplier;
             
-            multiplication.DisplayData();
+            TSquare multiply = length * multiplier;
+            Console.WriteLine($"\nРезультат: \n{multiply}");
+            
+            Console.WriteLine("\nПорiвняння двох квадратiв(при додаванні та відніманні):");
+            bool result = sum.CompareTo(diff);
+            Console.WriteLine($"Результат: {result}");
         }
     }
 }

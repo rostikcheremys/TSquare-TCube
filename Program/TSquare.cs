@@ -11,14 +11,9 @@ namespace Program
             _sideLength = 0;
         }
 
-        private TSquare(double sizeLength)
+        private TSquare(double length)
         {
-            if (sizeLength <= 0)
-            {
-                Console.WriteLine("Довжина сторiн повинна бути бiльше нуля!");
-            }
-
-            _sideLength = sizeLength;
+            CheckLengthAndSet(length);
         }
 
         public TSquare(TSquare otherSquare)
@@ -26,12 +21,22 @@ namespace Program
             _sideLength = otherSquare._sideLength;
         }
         
+        private void CheckLengthAndSet(double length)
+        {
+            if (length <= 0)
+            {
+                throw new ArgumentException("Довжина сторiн повинна бути бiльше нуля!");
+            }
+    
+            SetSideLength(length);
+        }
+        
         protected double GetSideLength()
         {
             return _sideLength;
         }
 
-        protected void SetSideLength(double length)
+        private void SetSideLength(double length)
         {
             _sideLength = length;
         }
@@ -44,13 +49,8 @@ namespace Program
         public void InputData()
         {
             double length = Convert.ToInt32(Console.ReadLine());
-
-            if (length <= 0)
-            {
-                Console.WriteLine("Довжина сторони повинна бути бiльше нуля!");
-            }
-
-            _sideLength = length;
+            
+            CheckLengthAndSet(length);
         }
 
         public void DisplayData()
@@ -87,10 +87,10 @@ namespace Program
             return new TSquare(newLenght);
         }
         
-        public static TSquare operator *(TSquare square, TSquare multiplier)
+        public static TSquare operator *(TSquare length, TSquare multiplier)
         {
-            double newLenght = square._sideLength * multiplier._sideLength;
-            return new TSquare(newLenght);
+            double multiply = length._sideLength * multiplier._sideLength;
+            return new TSquare(multiply);
         }
     }
 }
