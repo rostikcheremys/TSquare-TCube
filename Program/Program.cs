@@ -26,7 +26,7 @@ namespace Program
             Console.Write("Введiть другу довжину сторони квадрата: ");
             TSquare squareOfSecond = new TSquare();
             
-            squareOfFirst.InputData();
+            squareOfSecond.InputData();
 
             Console.WriteLine("\nПорiвняння двох квадратiв на рiвнiсть їхнiх розмiрiв:");
             bool result = squareOfFirst.CompareTo(squareOfSecond);

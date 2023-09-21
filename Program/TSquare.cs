@@ -5,16 +5,6 @@ namespace Program
     internal class TSquare
     {
         private double _sideLength;
-
-        protected double GetSideLength()
-        {
-            return _sideLength;
-        }
-
-        protected void SetSideLength(double length)
-        {
-            _sideLength = length;
-        }
         
         public TSquare()
         {
@@ -30,10 +20,15 @@ namespace Program
 
             _sideLength = sizeLength;
         }
-
-        public TSquare(TSquare otherSquare)
+        
+        protected double GetSideLength()
         {
-            _sideLength = otherSquare._sideLength;
+            return _sideLength;
+        }
+
+        protected void SetSideLength(double length)
+        {
+            _sideLength = length;
         }
 
         public override string ToString()
