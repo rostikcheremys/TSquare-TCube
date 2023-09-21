@@ -4,14 +4,14 @@ namespace Program
 {
     internal class TCube : TSquare
     {
-        private double CalculateVolume()
-        {
-            return CalculateArea() * GetSideLength();
-        }
-        
         public override string ToString()
         {
             return $"Куб зі стороною: {GetSideLength()}";
+        }
+        
+        private double CalculateVolume()
+        {
+            return CalculateArea() * GetSideLength();
         }
         
         public new void InputData()

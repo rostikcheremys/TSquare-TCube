@@ -8,7 +8,7 @@ namespace Program
         
         public TSquare()
         {
-            _sideLength = 1.0;
+            _sideLength = 0;
         }
 
         private TSquare(double sizeLength)
@@ -19,6 +19,11 @@ namespace Program
             }
 
             _sideLength = sizeLength;
+        }
+
+        public TSquare(TSquare otherSquare)
+        {
+            _sideLength = otherSquare._sideLength;
         }
         
         protected double GetSideLength()
@@ -82,9 +87,9 @@ namespace Program
             return new TSquare(newLenght);
         }
         
-        public static TSquare operator *(TSquare square, double multiplier)
+        public static TSquare operator *(TSquare square, TSquare multiplier)
         {
-            double newLenght = square._sideLength * multiplier;
+            double newLenght = square._sideLength * multiplier._sideLength;
             return new TSquare(newLenght);
         }
     }

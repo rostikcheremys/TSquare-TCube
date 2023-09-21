@@ -43,10 +43,14 @@ namespace Program
             
             diff.DisplayData();
             
-            Console.WriteLine("\nМноження сторін на 2:");
-            TSquare multiplied = squareOfFirst * 2.0;
+            Console.Write("\nВведiть число для множення довжини сторони квадрата: ");
+            TSquare multiplier = new TSquare();
             
-            multiplied.DisplayData();
+            multiplier.InputData();
+             
+            TSquare multiplication = squareOfFirst * multiplier;
+            
+            multiplication.DisplayData();
         }
     }
 }
