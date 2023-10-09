@@ -15,11 +15,6 @@ namespace Program
         {
             CheckLengthAndSet(length);
         }
-
-        public TSquare(TSquare otherSquare)
-        {
-            _sideLength = otherSquare._sideLength;
-        }
         
         private void CheckLengthAndSet(double length)
         {
