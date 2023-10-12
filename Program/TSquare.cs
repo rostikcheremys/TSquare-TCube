@@ -2,16 +2,16 @@ using System;
 
 namespace Program
 {
-    internal class TSquare
+    internal class Square
     {
         private double _sideLength;
         
-        public TSquare()
+        public Square()
         {
             _sideLength = 0;
         }
 
-        private TSquare(double length)
+        private Square(double length)
         {
             CheckLengthAndSet(length);
         }
@@ -65,27 +65,27 @@ namespace Program
             return 4 * _sideLength;
         }
 
-        public bool CompareTo(TSquare otherSquare)
+        public bool CompareTo(Square otherSquare)
         {
             return _sideLength == otherSquare._sideLength;
         }
 
-        public static TSquare operator +(TSquare squareOfFirst, TSquare squareOfSecond)
+        public static Square operator +(Square squareOfFirst, Square squareOfSecond)
         {
             double newLenght = squareOfFirst._sideLength + squareOfSecond._sideLength;
-            return new TSquare(newLenght);
+            return new Square(newLenght);
         }
         
-        public static TSquare operator -(TSquare squareOfFirst, TSquare squareOfSecond)
+        public static Square operator -(Square squareOfFirst, Square squareOfSecond)
         {
             double newLenght = Math.Abs(squareOfFirst._sideLength - squareOfSecond._sideLength);
-            return new TSquare(newLenght);
+            return new Square(newLenght);
         }
         
-        public static TSquare operator *(TSquare length, TSquare multiplier)
+        public static Square operator *(Square length, Square multiplier)
         {
             double multiply = length._sideLength * multiplier._sideLength;
-            return new TSquare(multiply);
+            return new Square(multiply);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Program
         public static void Main()
         {
             Console.Write("Введiть довжину сторони квадрата: ");
-            TSquare square = new TSquare();
+            Square square = new Square();
             
             square.InputData();
             square.DisplayData();
@@ -19,42 +19,42 @@ namespace Program
             cube.DisplayData();
             
             Console.Write("\nДодавання довжин сторон квадрата:\nВведiть першу довжину: ");
-            TSquare numberOfFirstSum = new TSquare();
+            Square numberOfFirstSum = new Square();
             
             numberOfFirstSum.InputData();
             
             Console.Write("Введiть другу довжину: ");
-            TSquare numberOfSecondSum = new TSquare();
+            Square numberOfSecondSum = new Square();
             
             numberOfSecondSum.InputData();
             
-            TSquare sum = numberOfFirstSum + numberOfSecondSum;
+            Square sum = numberOfFirstSum + numberOfSecondSum;
             Console.WriteLine($"\nРезультат: \n{sum}");
             
             Console.Write("\nВіднімання довжин сторон квадрата:\nВведiть першу довжину: ");
-            TSquare numberOfFirstDiff = new TSquare();
+            Square numberOfFirstDiff = new Square();
             
             numberOfFirstDiff.InputData();
             
             Console.Write("Введiть другу довжину: ");
-            TSquare numberOfSecondDiff = new TSquare();
+            Square numberOfSecondDiff = new Square();
             
             numberOfSecondDiff.InputData();
             
-            TSquare diff = numberOfFirstDiff - numberOfSecondDiff;
+            Square diff = numberOfFirstDiff - numberOfSecondDiff;
             Console.WriteLine($"\nРезультат: \n{diff}");
             
             Console.Write("\nМноження довжини сторони квадрата:\nВведiть довжину: ");
-            TSquare length = new TSquare();
+            Square length = new Square();
             
             length.InputData();
             
             Console.Write("Введiть число, на яке ви хочете помножити: ");
-            TSquare multiplier = new TSquare();
+            Square multiplier = new Square();
             
             multiplier.InputData();
             
-            TSquare multiply = length * multiplier;
+            Square multiply = length * multiplier;
             Console.WriteLine($"\nРезультат: \n{multiply}");
             
             Console.WriteLine("\nПорiвняння двох квадратiв(при додаванні та відніманні):");

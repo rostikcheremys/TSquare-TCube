@@ -2,7 +2,7 @@ using System;
 
 namespace Program
 {
-    internal class TCube : TSquare
+    internal class TCube : Square
     {
         public override string ToString()
         {
