@@ -2,90 +2,83 @@ using System;
 
 namespace Program
 {
-    internal class Square
+    internal class TSquare
     {
-        private double _sideLength;
+        private protected double _sideLength;
         
-        public Square()
+        public TSquare()
         {
-            _sideLength = 0;
+            _sideLength = 0.5;
         }
 
-        private Square(double length)
+        private TSquare(double sideLength)
         {
-            CheckLengthAndSet(length);
+            if (sideLength <= 0)
+            {
+                throw new ArgumentException("Довжина сторiн повинна бути бiльше нуля!");
+            }
+            _sideLength = sideLength;
         }
         
-        private void CheckLengthAndSet(double length)
+        public TSquare(TSquare otherSquare)
         {
+            _sideLength = otherSquare._sideLength;
+        }
+        
+        public override string ToString()
+        {
+            return $"Квадрат зі стороною: {_sideLength}";
+        }
+        
+        public void InputData()
+        {
+            double length = Convert.ToDouble(Console.ReadLine());
+            
             if (length <= 0)
             {
                 throw new ArgumentException("Довжина сторiн повинна бути бiльше нуля!");
             }
-    
-            SetSideLength(length);
-        }
-        
-        protected double GetSideLength()
-        {
-            return _sideLength;
-        }
-
-        private void SetSideLength(double length)
-        {
             _sideLength = length;
         }
-
-        public override string ToString()
-        {
-            return $"Квадрат зi стороною: {GetSideLength()}";
-        }
-
-        public void InputData()
-        {
-            double length = Convert.ToInt32(Console.ReadLine());
-            
-            CheckLengthAndSet(length);
-        }
-
-        public void DisplayData()
+        
+        public virtual void DisplayData()
         {
             Console.WriteLine(ToString());
             Console.WriteLine($"Площа: {CalculateArea()}");
             Console.WriteLine($"Периметр: {CalculatePerimeter()}");
         }
-
-        protected double CalculateArea()
+        
+        protected virtual double CalculateArea()
         {
-            return _sideLength * _sideLength;
+            return Math.Pow(_sideLength, 2);
         }
 
-        protected double CalculatePerimeter()
+        protected virtual double CalculatePerimeter()
         {
             return 4 * _sideLength;
         }
-
-        public bool CompareTo(Square otherSquare)
+        
+        public bool CompareTo(TSquare otherSquare)
         {
             return _sideLength == otherSquare._sideLength;
         }
+        
+        public static TSquare operator +(TSquare square1, TSquare square2)
+        {
+            double newLength = square1._sideLength + square2._sideLength;
+            return new TSquare(newLength);
+        }
 
-        public static Square operator +(Square squareOfFirst, Square squareOfSecond)
+        public static TSquare operator -(TSquare square1, TSquare square2)
         {
-            double newLenght = squareOfFirst._sideLength + squareOfSecond._sideLength;
-            return new Square(newLenght);
+            double newLength = Math.Abs(square1._sideLength - square2._sideLength);
+            return new TSquare(newLength);
         }
-        
-        public static Square operator -(Square squareOfFirst, Square squareOfSecond)
+
+        public static TSquare operator *(TSquare square, double multiplier)
         {
-            double newLenght = Math.Abs(squareOfFirst._sideLength - squareOfSecond._sideLength);
-            return new Square(newLenght);
-        }
-        
-        public static Square operator *(Square length, Square multiplier)
-        {
-            double multiply = length._sideLength * multiplier._sideLength;
-            return new Square(multiply);
+            double newLength = square._sideLength * multiplier;
+            return new TSquare(newLength);
         }
     }
 }

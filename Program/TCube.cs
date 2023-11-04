@@ -2,24 +2,34 @@ using System;
 
 namespace Program
 {
-    internal class TCube : Square
+    internal class TCube : TSquare
     {
-        public override string ToString()
+        protected override double CalculateArea()
         {
-            return $"Куб зі стороною: {GetSideLength()}";
+            return 6 * Math.Pow(_sideLength, 2);
         }
-        
+
+        protected override double CalculatePerimeter()
+        {
+            return 12 * _sideLength;
+        }
+
         private double CalculateVolume()
         {
-            return CalculateArea() * GetSideLength();
+            return Math.Pow(_sideLength, 3);
         }
-        
-        public new void DisplayData()
+
+        public override string ToString()
+        {
+            return $"Куб зі стороною: {_sideLength}";
+        }
+
+        public override void DisplayData()
         {
             Console.WriteLine(ToString());
-            Console.WriteLine($"Площа поверхi: {CalculateArea()}");
+            Console.WriteLine($"Площа: {CalculateArea()}");
             Console.WriteLine($"Периметр: {CalculatePerimeter()}");
-            Console.WriteLine($"Об'єм куба: {CalculateVolume()}");
+            Console.WriteLine($"Об’єм: {CalculateVolume()}");
         }
     }
 }
